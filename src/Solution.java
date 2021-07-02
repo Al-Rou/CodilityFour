@@ -69,6 +69,7 @@ public class Solution {
                     return -1;
                 }
             }
+            //This counts the number of adjacent entries in the list which are both positive or both negative
             int counter = 0;
             for (int i = 1; i < list.size()-1; i++)
             {
@@ -77,29 +78,37 @@ public class Solution {
                     counter++;
                 }
             }
+            //If we have more than one, it is impossible to have trees aesthetic with just one cut
             if(counter > 1)
             {
                 return -1;
             }
             else
             {
+                //This counts possibilities of cutting one tree to have trees aesthetic
                 int counterTwo = 0;
 
                 for(int j = 0; j < A.length; j++)
                 {
+                    //Every time, an array should be created with the same data as in A without just one of them
+                    //which represents cutting one tree each time
                     List<Integer> list2 = new ArrayList<>();
                     for(int i = 0; i < A.length; i++)
                     {
                         list2.add(A[i]);
                     }
                     int[] aux = new int[A.length-1];
+                    //One tree is cut
                     list2.remove(j);
                     for(int k = 0; k < list2.size(); k++)
                     {
+                        //The auxiliary array, which has one data less than A, is ready
                         aux[k] = list2.get(k);
                     }
+                    //Recursive call of the method. If the return is 0, it means trees in this case are aestheric
                     if(solution(aux) == 0)
                     {
+                        //So, this increments by one
                         counterTwo++;
                     }
                 }
