@@ -53,13 +53,17 @@ public class Solution {
         }
         else
         {
+            //Now, we check all cases which the return is -1, which means there is no way that
+            //the trees be aesthetic with just one cut
             for(int i = 0; i < A.length-1; i++)
             {
                 int difference = A[i] - A[i+1];
+                //Differences between adjacent data are stored in a list
                 list.add(difference);
             }
             for (int i = 1; i < list.size()-1; i++)
             {
+                //Three entries in the list which are all positive or all negative, make the code return -1
                 if(((list.get(i)*list.get(i-1)) > 0) && ((list.get(i)*list.get(i+1)) > 0) && ((list.get(i+1)*list.get(i-1)) > 0))
                 {
                     return -1;
