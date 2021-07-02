@@ -13,6 +13,7 @@ public class Solution {
     public int solution(int[] A)
     {
         List<Integer> list = new ArrayList<>();
+        //First we check whether the array is aesthetic, to return 0
         boolean check = true;
         if(A[0] < A[1])
         {
